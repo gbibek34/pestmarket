@@ -40,6 +40,9 @@
     font-weight: 600;
 }
 
+.btn-login {
+}
+
 .profile-img {
     width: 20px;
     height: 20px;
@@ -50,3 +53,14 @@
 }
 
 /* Carousel */
+
+/* Footer */
+
+footer {
+    color: #F7F7F7;
+    background-color: #00522C !important;
+}
+
+footer li {
+    list-style-type: none;
+}
