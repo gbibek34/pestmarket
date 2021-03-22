@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Buttons */
+
+.btn {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+/* Colors */
+
+.colors {
+    color: #00522C;
+    color: #019F55;
+    color: #1AEB89;
+    color: #520B00;
+    color: #9E1602;
+}
+
+/* Navbar */
+
+.navbar-brand {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8em;
+    font-weight: 800;
+
+    /* color: #019F55 !important; */
+}
+
+.navbar-brand span {
+    color: #019F55;
+}
+
+.nav-link {
+    font-family: "Poppins", sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.profile-img {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+/* Carousel */

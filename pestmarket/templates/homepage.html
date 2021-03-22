@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+Pestmarket | Marketplace and Forum for agriculture
+{% endblock %}
+
+{% block content %}
+<main>
+    <!-- Carousel -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/Slide2.png' %}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <p class="lead">Pestmarket is the best platform for you to buy the best in market pesticides for your
+                plants and crops. Not only that it is the only place you can come, share and discuss your topic
+                on agriculture and other topics.</p>
+            <a class="btn btn-primary btn-sm" href="" role="button">Market</a>
+            <a class="btn btn-primary btn-sm" href="" role="button">Forum</a>
+        </div>
+    </div>
+</main>
+{% endblock %}
