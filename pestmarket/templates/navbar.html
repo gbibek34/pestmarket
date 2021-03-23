@@ -3,7 +3,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Pest<span>market</span></a>
+            <a class="navbar-brand" href="/">Pest<span>market</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -11,17 +11,17 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active m-2">
-                        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                    <li class="nav-item m-2 {{activatehome}}">
+                        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item m-2">
-                        <a class="nav-link" href="products.html">Market</a>
+                    <li class="nav-item m-2 {{activateproducts}}">
+                        <a class="nav-link" href="/products">Market</a>
                     </li>
-                    <li class="nav-item m-2">
-                        <a class="nav-link" href="forum.html">Forum</a>
+                    <li class="nav-item m-2 {{activateforum}}">
+                        <a class="nav-link" href="/forum">Forum</a>
                     </li>
-                    <li class="nav-item m-2">
-                        <a class="nav-link" href="about.html">About Us</a>
+                    <li class="nav-item m-2 {{activateabout}}">
+                        <a class="nav-link" href="/aboutus">About Us</a>
                     </li>
                     <!-- <li class="nav-item m-2 dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -36,7 +36,7 @@
                         </div>
                     </li> -->
                     <li class="nav-item m-2">
-                        <a class="nav-link btn btn-login px-4" href="login.html" role="button">Login</a>
+                        <a class="nav-link btn btn-login px-4" href="/users/login" role="button">Login</a>
                     </li>
                 </ul>
             </div>

@@ -19,7 +19,17 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'homepage.html', )
+    context = {
+        'activatehome': 'active'
+    }
+    return render(request, 'homepage.html', context)
+
+
+def aboutus(request):
+    context = {
+        'activateabout': 'active'
+    }
+    return render(request, 'aboutus.html', context)
 
 
 urlpatterns = [
@@ -28,5 +38,6 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('admins/', include('admins.urls')),
     path('products/', include('products.urls')),
-    path('forum/', include('forum.urls'))
+    path('forum/', include('forum.urls')),
+    path('aboutus/', aboutus)
 ]
