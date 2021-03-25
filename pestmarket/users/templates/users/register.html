@@ -1,13 +1,26 @@
 {% extends 'index.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block title %}
-Pestmarket | Marketplace and Forum for Agriculture
+Pestmarket | Register
 {% endblock %}
 
 {% block content %}
 <main>
     <h1>Register Page</h1>
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
     <a href="/users/login">Login</a>
 </main>
 {% endblock %}

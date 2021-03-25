@@ -40,6 +40,32 @@
     font-weight: 600;
 }
 
+.active {
+    color: #00522C !important;
+}
+
+.navlink::after {
+    display: block;
+
+    width: 0;
+    height: 2px;
+
+    content: "";
+    transition: width 0.3s;
+
+    background: #1fa12e;
+}
+
+.navlink:hover::after {
+    width: 100%;
+
+    transition: width 0.3s;
+}
+
+.navlink:hover {
+    color: #1fa12e !important;
+}
+
 .btn-login {
     width: 150px;
 
@@ -66,9 +92,47 @@
 
 /* Carousel */
 
+/* Jumbotron */
+
+.jumbotron .lead {
+    font-family: "Monsterrat", sans-serif;
+
+    color: #4F4F4F;
+}
+
+.btn-market {
+    font-weight: bold;
+
+    color: #FFF;
+    border: 2px solid #9E1602;
+    border-radius: 30px;
+    background-color: #9E1602 !important;
+}
+
+.btn-market:hover {
+    color: #9E1602;
+    background-color: #E9ECEF !important;
+}
+
+.btn-forum {
+    font-weight: bold;
+
+    color: #FFF;
+    border: 2px solid #019F55;
+    border-radius: 30px;
+    background-color: #019F55 !important;
+}
+
+.btn-forum:hover {
+    color: #019F55;
+    background-color: #E9ECEF !important;
+}
+
 /* Footer */
 
 footer {
+    font-family: "Montserrat", sans-serif;
+
     color: #F7F7F7;
     background-color: #00522C !important;
 }
