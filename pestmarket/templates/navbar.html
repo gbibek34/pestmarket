@@ -27,7 +27,7 @@
                     <li class="nav-item m-2 dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="profile-img" src="{% static 'images/profile.jpg' %}" alt="">
+                            <img class="profile-img" src="{{ user.profile.image.url }}" alt="">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/users/profile">Your Profile</a>
