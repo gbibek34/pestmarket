@@ -23,21 +23,24 @@
                     <li class="nav-item m-2 {{activateabout}}">
                         <a class="nav-link navlink" href="/aboutus">About Us</a>
                     </li>
-                    <!-- <li class="nav-item m-2 dropdown">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item m-2 dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="profile-img" src="{% static 'images/profile.jpg' %}" alt="">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Your Profile</a>
+                            <a class="dropdown-item" href="/users/profile">Your Profile</a>
                             <a class="dropdown-item" href="#">Settings</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Sign out</a>
+                            <a class="dropdown-item" href="/users/logout">Sign out</a>
                         </div>
-                    </li> -->
+                    </li>
+                    {% else %}
                     <li class="nav-item m-2">
                         <a class="nav-link btn btn-login px-4" href="/users/login">Login</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
