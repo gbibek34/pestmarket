@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Buttons */
+
+.btn {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+/* Colors */
+
+.colors {
+    color: #00522C;
+    color: #019F55;
+    color: #1AEB89;
+    color: #520B00;
+    color: #9E1602;
+}
+
+/* Profile Image */
+
+.account-img {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
