@@ -1,32 +1,51 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.user-info {
+    font-family: "Poppins", sans-serif !important;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    border-radius: 5px;
+    background: #019F5550 !important;
 }
 
-/* Buttons */
-
-.btn {
-    font-family: "Montserrat", sans-serif !important;
-}
-
-/* Colors */
-
-.colors {
-    color: #00522C;
-    color: #019F55;
-    color: #1AEB89;
-    color: #520B00;
+.username {
     color: #9E1602;
 }
 
-/* Profile Image */
+.user-info-update {
+    font-family: "Montserrat", sans-serif !important;
 
-.account-img {
+    border-radius: 5px;
+    background: #019F5550 !important;
+}
+
+.user-profile-image {
     width: 200px;
     height: 200px;
 
+    border: 5px white solid;
     border-radius: 50%;
 
     object-fit: cover;
+}
+
+.btn-update {
+    font-weight: bold;
+
+    color: #FFF;
+    border: 2px solid #9E1602;
+    border-radius: 30px;
+    background-color: #9E1602 !important;
+}
+
+.btn-update:hover {
+    color: #9e17029d !important;
+    background-color: #019F5550 !important;
+}
+
+@media(max-width: 768px) {
+    .user-info-update {
+        margin-top: 24px;
+    }
 }

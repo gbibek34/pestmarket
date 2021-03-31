@@ -8,26 +8,34 @@ Pestmarket | Marketplace and Forum for Agriculture
 
 {% block content %}
 <main>
-    <div class="container">
-        <div class="content-section">
-            <div class="media">
-                <img class="account-img" src="{{ user.profile.image.url }}">
-                <div class="media-body">
-                    <h2 class="account-heading">{{ user.username }}</h2>
-                    <p class="text-secondary">{{ user.email }}</p>
+    <div class="container profile-container p-5 my-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="user-info shadow p-4 ml-r">
+                    <div>
+                        <img class="user-profile-image m-auto" src="{{ user.profile.image.url }}" alt="">
+                    </div>
+                    <div>
+                        <h2 class="username mt-3">{{ user.username }}</h2>
+                        <p class="user-email mt-2">{{ user.email }}</p>
+                    </div>
                 </div>
             </div>
-            <form action="" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Profile Info</legend>
-                    {{ user_form|crispy }}
-                    {{ profile_form|crispy }}
-                </fieldset>
-                <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit">Update</button>
+            <div class="col-md-8">
+                <div class="user-info-update shadow p-5">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-2">Profile Info</legend>
+                            {{ user_form|crispy }}
+                            {{ profile_form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-update" type="submit">Update</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </main>
