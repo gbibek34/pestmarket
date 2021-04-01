@@ -7,21 +7,30 @@ Pestmarket | Forum
 
 {% block content %}
 <main>
-    <h1>Forum Main Page</h1>
-    <div class="container">
+    <div class="container p-4">
         {% for post in posts %}
-        <article class="media content-section">
-            <div class="media-body">
-                <div class="article-meta">
-                    <a href="" class="mr-2">{{ post.author }}</a>
-                    <small class="text-muted">{{ post.date_time }}</small>
+        <div class="card shadow mt-5 py-4 px-5 post">
+            <div class="row">
+                <div class="col-md-11 py-3 px-4 post-body">
+                    <div class="post-content">
+                        <div class="post-title h5">{{ post.title }}</div>
+                        <div class="post-text text-muted mt-3">{{ post.content }}</div>
+                    </div>
+                    <hr class="my-3">
+                    <div class="post-author">
+                        <img class="author-img" src="images/profile.jpeg" alt="">
+                        <p class="text-muted ml-4">Posted By&nbsp; <span class="author-name">{{ post.author }}</span>
+                            <span class="ml-4">{{ post.date_time }}</span>
+                        </p>
+                    </div>
                 </div>
-                <h2>
-                    <a href="" class="article-title">{{ post.title }}</a>
-                </h2>
-                <p class="article-content">{{ post.content }}</p>
+                <div class="col-md-1 p-3 post-actions">
+                    <img class="post-like" src="{% static 'images/unliked.png' %}" alt="">
+                    <p class="text-muted">0</p>
+                    <img class="post-comment" src="{% static 'images/comment.png' %}" alt="">
+                </div>
             </div>
-        </article>
+        </div>
         {% endfor %}
     </div>
 </main>

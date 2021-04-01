@@ -1,0 +1,48 @@
+.post {
+    font-family: "Montserrat", sans-serif !important;
+
+    border: none;
+}
+
+.post-title {
+    font-weight: bold;
+}
+
+.post-author {
+    display: flex;
+    flex-direction: row;
+}
+
+.author-img {
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.author-name {
+    color: #9E1602;
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.post-like {
+    width: 20px;
+}
+
+.post-comment {
+    width: 35px;
+}
+
+@media(max-width: 767px) {
+    .post-actions {
+        flex-direction: row;
+    }
+}
