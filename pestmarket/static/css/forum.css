@@ -8,6 +8,15 @@
     font-weight: bold;
 }
 
+.post-image {
+    width: 100%;
+}
+
+.post-image img {
+    width: 50%;
+    height: auto;
+}
+
 .post-author {
     display: flex;
     flex-direction: row;
@@ -26,23 +35,32 @@
     color: #9E1602;
 }
 
+.post-options {
+    margin-left: auto;
+}
+
+.post-options .dropdown-item {
+    font-size: 12px;
+}
+
 .post-actions {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: start;
 }
 
 .post-like {
-    width: 20px;
+    width: 15px;
 }
 
 .post-comment {
-    width: 35px;
+    width: 30px;
 }
 
 @media(max-width: 767px) {
     .post-actions {
         flex-direction: row;
+        justify-content: space-around;
     }
 }

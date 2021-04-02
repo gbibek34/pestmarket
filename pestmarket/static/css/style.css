@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+main {
+    min-height: calc(100vh - 70px);
+}
+
 /* Buttons */
 
 .btn {

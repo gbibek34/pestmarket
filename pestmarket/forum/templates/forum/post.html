@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+Pestmarket | Forum
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container p-4">
+        <div class="card shadow mt-5 py-4 px-5 post">
+            <div class="py-3 px-4 post-body">
+                <div class="post-author">
+                    <img class="author-img" src="{{ object.author.profile.image.url }}" alt="">
+                    <p class="text-muted ml-4">
+                        <span class="author-name">{{ object.author }}</span>
+                        <span class="ml-4">{{ object.date_time }}</span>
+                    </p>
+                    {% if object.author == user %}
+                    <div class="post-options">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/forum/{{post.id}}/update">Update Post</a>
+                                <a class="dropdown-item" href="/forum/{{post.id}}/delete">Delete Post</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <hr class="my-3">
+                <div class="post-content">
+                    <div class="post-title h5">{{ object.title }}</div>
+                    <div class="post-text text-muted mt-3">{{ object.content }}</div>
+                    <div class="post-image mt-3">
+                        <img src="{{ object.image.url }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

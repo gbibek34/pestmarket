@@ -8,26 +8,34 @@ Pestmarket | Forum
 {% block content %}
 <main>
     <div class="container p-4">
+        <div class="card shadow mt-5 pt-3 pb-3 post">
+            <p class="text-muted m-auto">Create a new post</p>
+            <a class="stretched-link" href="/forum/newpost/"></a>
+        </div>
         {% for post in posts %}
         <div class="card shadow mt-5 py-4 px-5 post">
             <div class="row">
                 <div class="col-md-11 py-3 px-4 post-body">
                     <div class="post-content">
                         <div class="post-title h5">{{ post.title }}</div>
-                        <div class="post-text text-muted mt-3">{{ post.content }}</div>
+                        <div class="text-muted mt-3">{{ post.content }}</div>
+                        <div class="post-image mt-3">
+                            <img src="{{ post.image.url }}" alt="">
+                        </div>
                     </div>
                     <hr class="my-3">
                     <div class="post-author">
-                        <img class="author-img" src="images/profile.jpeg" alt="">
-                        <p class="text-muted ml-4">Posted By&nbsp; <span class="author-name">{{ post.author }}</span>
+                        <img class="author-img" src="{{ post.author.profile.image.url }}" alt="">
+                        <p class="text-muted ml-4"><span class="author-name">{{ post.author }}</span>
                             <span class="ml-4">{{ post.date_time }}</span>
                         </p>
                     </div>
+                    <a class="stretched-link" href="/forum/{{post.id}}/"></a>
                 </div>
                 <div class="col-md-1 p-3 post-actions">
-                    <img class="post-like" src="{% static 'images/unliked.png' %}" alt="">
-                    <p class="text-muted">0</p>
-                    <img class="post-comment" src="{% static 'images/comment.png' %}" alt="">
+                    <img class="post-like mt-4" src="{% static 'images/unliked.png' %}" alt="">
+                    <img class="post-comment mt-4" src="{% static 'images/comment.png' %}" alt="">
+                    <p class="text-muted mt-4">0</p>
                 </div>
             </div>
         </div>
