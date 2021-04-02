@@ -38,6 +38,23 @@ Pestmarket | Forum
                         <img src="{{ object.image.url }}" alt="">
                     </div>
                 </div>
+                <hr class="my-3">
+                <div class="col-md-1 p-3 post-actions">
+                    <form action="." method="POST">
+                        {% csrf_token %}
+                        {% if liked_post %}
+                        <button id="post-dislike" class="text-decoration-none border-0" name="dislike_post">
+                            <img class="like-post" src="{% static 'images/liked.png' %}" alt="">
+                        </button>
+                        {% else %}
+                        <button id="post-like" class="text-decoration-none border-0" name="like_post">
+                            <img class="like-post" src="{% static 'images/unliked.png' %}" alt="">
+                        </button>
+                        {% endif %}
+                        <img class="comment-post" src="{% static 'images/comment.png' %}" alt="">
+                        <p class="text-muted">{{ likes }}</p>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -46,21 +46,24 @@
 .post-actions {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    justify-content: start;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.post-like {
+.like-post {
     width: 15px;
 }
 
-.post-comment {
+.comment-post {
     width: 30px;
 }
 
 @media(max-width: 767px) {
-    .post-actions {
+/*
+.post-actions {
         flex-direction: row;
+
         justify-content: space-around;
-    }
+}
+*/
 }
