@@ -8,6 +8,10 @@ main {
     min-height: calc(100vh - 70px);
 }
 
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 /* Buttons */
 
 .btn {

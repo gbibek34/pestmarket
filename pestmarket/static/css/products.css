@@ -1,0 +1,149 @@
+/* Title */
+
+.lg-title,
+.md-title,
+.sm-title {
+    font-family: 'Poppins', sans-serif;
+
+    padding: 0.6rem 0;
+
+    text-transform: capitalize;
+}
+
+.lg-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+
+    padding: 1.3rem 0;
+
+    text-align: center;
+
+    opacity: 0.9;
+}
+
+.md-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+}
+
+.sm-title {
+    font-size: 1rem;
+    font-weight: 300;
+
+    text-transform: uppercase;
+}
+
+.text-light {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+
+    margin: 0.4rem 0;
+
+    opacity: 0.5;
+}
+
+/* Product Card */
+
+.product-img img {
+    display: block;
+
+    width: 100%;
+}
+
+.product {
+    position: relative;
+}
+
+.product-content {
+    cursor: pointer;
+
+    background: #EDEDED;
+}
+
+.product-img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+
+    transition: background 0.5s ease;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+}
+
+.product-btns {
+    display: flex;
+    justify-content: center;
+
+    transition: opacity 0.6s ease;
+
+    opacity: 0;
+}
+
+.btn-cart {
+    font-family: inherit;
+
+    cursor: pointer;
+    transition: all 0.6s ease;
+    text-transform: uppercase;
+
+    color: white;
+    border: 1px solid black;
+    border: none;
+    background: black;
+}
+
+.btn-cart:hover {
+    background: #1AEB89;
+}
+
+.product-info {
+    background: white;
+}
+
+.product-info-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rating span {
+    color: #9E1602;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: bold;
+
+    display: block;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: black;
+}
+
+.product-price {
+    display: inline-block;
+
+    padding-top: 0.6rem;
+    padding-right: 0.6rem;
+
+    color: #019F55;
+}
+
+.product-img img {
+    transition: transform 0.6s ease;
+}
+
+.product:hover .product-img img {
+    transform: scale(1.1);
+}
+
+.product:hover .product-btns {
+    opacity: 1;
+}
+
+/* Media Queries */

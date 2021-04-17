@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+Pestmarket | Market
+{% endblock %}
+
+{% block content %}
+<main>
+    <main>
+        <!--? Content Here -->
+        <div class="container cart p-4">
+            <div class="added-products">
+                {% for item in items %}
+                <div class="cart-product p-4 shadow">
+                    <div class="cart-p-info">
+                        <img class="cart-p-img" src="{{item.product.image.url}}" alt="">
+                        <div>
+                            <h6 class="mt-3">{{item.product.name}}</h6>
+                            <p>Rs {{item.product.price}}</p>
+                        </div>
+                    </div>
+                    <div class="cart-p-quantity">
+                        <div class="text-center py-1 px-2">
+                            <span>
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </div>
+                        <div class="p-quantity text-center p-1">
+                            {{item.quantity}}
+                        </div>
+                        <div class="text-center py-1 px-2">
+                            <i class="fas fa-minus"></i>
+                        </div>
+                    </div>
+                    <div class="cart-p-total mt-3">
+                        <h6>Total</h6>
+                        <p>Rs {{item.get_total}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="order-summary">
+                <div class="order-details p-4 shadow">
+                    <h2>Order Summary</h2>
+                    <p>Total Items : <span>{{order.get_cart_items}}</span></p>
+                    <p>Total Price : <span>Rs {{order.get_cart_total}}</span></p>
+                    <button class="btn btn-block btn-outline-success">CHECKOUT</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</main>
+{% endblock %}
