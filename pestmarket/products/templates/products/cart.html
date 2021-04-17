@@ -39,6 +39,11 @@ Pestmarket | Market
             </div>
             {% endfor %}
         </div>
+        <!-- {# if order.get_cart_items==0 #} -->
+        <!-- <div class="empty-cart">
+            <a href="/products/" class="btn btn-block btn-outline-secondary">Your cart is empty, continue shopping</a>
+        </div> -->
+        <!-- {# else #} -->
         <div class="order-summary">
             <div class="order-details p-4 shadow">
                 <h2>Order Summary</h2>
@@ -47,28 +52,17 @@ Pestmarket | Market
                 <button class="btn btn-block btn-outline-success btn-checkout">CHECKOUT</button>
             </div>
             <div class="checkout mt-4 p-4 shadow">
-                {% csrf_token %}
-                {{ checkoutform|crispy }}
-                <button class="btn btn-block btn-outline-warning" type="submit">PROCEED</button>
-                <button class="btn btn-block btn-outline-secondary btn-cancel" type="button">CANCEL</button>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ checkoutform|crispy }}
+                    <div class="form-group">
+                        <button class="btn btn-block btn-outline-warning" type="submit">PROCEED</button>
+                        <button class="btn btn-block btn-outline-secondary btn-cancel" type="button">CANCEL</button>
+                    </div>
+                </form>
             </div>
         </div>
+        <!-- {# endif #} -->
     </div>
 </main>
-<script>
-    $(document).ready(function () {
-
-        $(".checkout").hide();
-
-        $(".btn-checkout").click(function () {
-            $(".checkout").show();
-            $(".btn-checkout").hide();
-        });
-
-        $(".btn-cancel").click(function () {
-            $(".checkout").hide();
-            $(".btn-checkout").show();
-        });
-    });
-</script>
 {% endblock %}

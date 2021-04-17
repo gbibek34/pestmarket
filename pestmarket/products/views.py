@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Product, Order, OrderItem, ShippingAddress
 from .forms import CheckoutForm
@@ -34,6 +35,10 @@ def cart(request):
 
     if request.method == 'POST':
         checkoutform = CheckoutForm(request.POST)
+        if checkoutform.is_valid():
+            checkoutform.save()
+            messages.success(request, f'Order Placed Successfully')
+            return redirect('/products/')
     else:
         checkoutform = CheckoutForm(request.POST)
 

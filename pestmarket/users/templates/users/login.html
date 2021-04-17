@@ -8,6 +8,11 @@ Pestmarket | Marketplace and Forum for Agriculture
 
 {% block content %}
 <main>
+    {% if user.is_authenticated %}
+    <div class="container p-5">
+        <h4>Logout to login using another account</h4>
+    </div>
+    {% else %}
     <h1>Login Page</h1>
     <div class="container">
         <form action="" method="post">
@@ -22,5 +27,6 @@ Pestmarket | Marketplace and Forum for Agriculture
         </form>
     </div>
     <a href="/users/register">Register</a>
+    {% endif %}
 </main>
 {% endblock %}
