@@ -40,6 +40,10 @@
     flex-grow: 2;
 }
 
+.p-qty {
+    cursor: pointer;
+}
+
 .cart-p-total {
     flex-grow: 1;
 }
