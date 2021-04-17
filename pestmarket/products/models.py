@@ -20,7 +20,7 @@ class Order(models.Model):
     transaction_id = models.CharField(max_length=200)
 
     def __str__(self):
-        return str(self.transaction_id)
+        return str(self.id)
 
     @property
     def get_cart_total(self):
@@ -54,9 +54,7 @@ class ShippingAddress(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     address = models.CharField(max_length=200)
-    region = models.CharField(max_length=200)
-    city = models.CharField(max_length=200)
-    area = models.CharField(max_length=200, null=True)
+    contactno = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

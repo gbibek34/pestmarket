@@ -30,3 +30,13 @@ function updateUserOrder(productId, action){
         location.reload()
     })
 }
+
+$(".checkout").hide();
+
+    $(".btn-checkout").click(function () {
+        $(".checkout").show();
+    });
+
+    $(".btn-cancel").click(function () {
+        $(".checkout").show();
+    });

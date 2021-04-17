@@ -1,4 +1,5 @@
 {% extends 'index.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block title %}
@@ -43,12 +44,31 @@ Pestmarket | Market
                 <h2>Order Summary</h2>
                 <p>Total Items : <span>{{order.get_cart_items}}</span></p>
                 <p>Total Price : <span>Rs {{order.get_cart_total}}</span></p>
-                <button class="btn btn-block btn-outline-success">CHECKOUT</button>
+                <button class="btn btn-block btn-outline-success btn-checkout">CHECKOUT</button>
             </div>
-            <div class="checkout p-4 shadow">
-                hi
+            <div class="checkout mt-4 p-4 shadow">
+                {% csrf_token %}
+                {{ checkoutform|crispy }}
+                <button class="btn btn-block btn-outline-warning" type="submit">PROCEED</button>
+                <button class="btn btn-block btn-outline-secondary btn-cancel" type="button">CANCEL</button>
             </div>
         </div>
     </div>
 </main>
+<script>
+    $(document).ready(function () {
+
+        $(".checkout").hide();
+
+        $(".btn-checkout").click(function () {
+            $(".checkout").show();
+            $(".btn-checkout").hide();
+        });
+
+        $(".btn-cancel").click(function () {
+            $(".checkout").hide();
+            $(".btn-checkout").show();
+        });
+    });
+</script>
 {% endblock %}

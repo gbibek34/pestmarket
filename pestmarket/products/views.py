@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Product, Order, OrderItem, ShippingAddress
+from .forms import CheckoutForm
 from django.http import JsonResponse
 import json
 # Create your views here.
@@ -31,10 +32,16 @@ def cart(request):
     items = order.orderitem_set.all()
     cartitems = order.get_cart_items
 
+    if request.method == 'POST':
+        checkoutform = CheckoutForm(request.POST)
+    else:
+        checkoutform = CheckoutForm(request.POST)
+
     context = {
         'activateproducts': 'active',
         'items': items,
         'order': order,
+        'checkoutform': checkoutform,
     }
     return render(request, 'products/cart.html', context)
 
