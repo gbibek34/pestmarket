@@ -1,5 +1,4 @@
 {% extends 'index.html' %}
-{% load crispy_forms_tags %}
 {% load static %}
 
 {% block title %}
@@ -9,24 +8,31 @@ Pestmarket | Marketplace and Forum for Agriculture
 {% block content %}
 <main>
     {% if user.is_authenticated %}
-    <div class="container p-5">
-        <h4>Logout to login using another account</h4>
-    </div>
+    <div></div>
     {% else %}
-    <h1>Login Page</h1>
     <div class="container">
-        <form action="" method="post">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Login</legend>
-                {{ form|crispy}}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
+        <div class="login-container m-4 shadow-sm">
+            <div class="user signinbox">
+                <div class="login-image"><img src="{% static 'images/login.jpg' %}" alt=""></div>
+                <div class="login-box">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <h2 class="text-center">Log In</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="username" placeholder="Username" />
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" />
+                        </div>
+                        <input class="btn-block btn-signin" type="submit" value="Login">
+                        <p class="signup">New Here? <a href="/users/register/">Sign Up</a></p>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
-    <a href="/users/register">Register</a>
     {% endif %}
 </main>
 {% endblock %}

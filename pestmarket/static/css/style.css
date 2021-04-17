@@ -136,6 +136,133 @@ body {
     background-color: #E9ECEF !important;
 }
 
+/* Login Page */
+
+.login-container {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 1000px;
+    height: 600px;
+
+    background: #fff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+}
+
+.user {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+}
+
+.login-image {
+    position: relative;
+
+    width: 50%;
+    height: 100%;
+
+    transition: 0.5s;
+}
+
+.login-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.login-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50%;
+    height: 100%;
+    padding: 40px;
+
+    transition: 0.5s;
+
+    background: #fff;
+}
+
+.input-field {
+    position: relative;
+
+    display: grid;
+
+    width: 100%;
+    max-width: 380px;
+    height: 55px;
+    margin: 10px 0;
+    padding: 0 0.4rem;
+
+    border-radius: 55px;
+    background-color: #f0f0f0;
+
+    grid-template-columns: 15% 85%;
+}
+
+.input-field i {
+    font-size: 1.1rem;
+    line-height: 55px;
+
+    transition: 0.5s;
+    text-align: center;
+
+    color: #acacac;
+}
+
+.input-field input {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1;
+
+    color: #333;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.input-field input::placeholder {
+    font-weight: 500;
+
+    color: #aaa;
+}
+
+.btn-signin {
+    font-weight: 600;
+
+    width: 150px;
+    height: 49px;
+    margin: 10px 0;
+
+    cursor: pointer;
+    transition: 0.5s;
+    text-transform: uppercase;
+
+    color: #fff;
+    border: none;
+    border-radius: 49px;
+    outline: none;
+    background-color: #019F55;
+}
+
+.btn-signin:hover {
+    background-color: #1AEB89;
+}
+
 /* Footer */
 
 footer {
@@ -155,5 +282,19 @@ footer li {
     .nav-item {
         margin: auto !important;
         padding: 5px !important;
+    }
+}
+
+@media(max-width: 1000px) {
+    .login-container {
+        max-width: 400px;
+    }
+
+    .login-image {
+        display: none;
+    }
+
+    .user .login-box {
+        width: 100%;
     }
 }
