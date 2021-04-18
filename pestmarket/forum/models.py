@@ -12,6 +12,7 @@ class Post(models.Model):
     date_time = models.DateTimeField(default=timezone.now)
     image = models.ImageField(default='nothing.jpg', upload_to='posted_pics')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, related_name='blog_posts')
 
     def __str__(self):
         return self.title
@@ -19,18 +20,5 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post-view', kwargs={'pk': self.pk})
 
-
-class Like(models.Model):
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name='liked_post')
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='liking_user')
-    liked = models.BooleanField(default=False)
-
-    def is_liked(self):
-        self.liked = True
-        self.save()
-
-    def not_liked(self):
-        self.liked = False
-        self.save()
+    def total_likes(self):
+        return self.likes.count()

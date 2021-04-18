@@ -283,6 +283,12 @@ footer li {
     list-style-type: none;
 }
 
+.quick-links {
+    text-decoration: none;
+
+    color: #fff;
+}
+
 /* Media Queries */
 
 @media(max-width: 992px) {

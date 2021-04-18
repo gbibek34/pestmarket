@@ -46,16 +46,15 @@
 .post-actions {
     display: flex;
     align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .like-post {
-    width: 15px;
+    width: 50px;
 }
 
 .comment-post {
-    width: 30px;
+    width: 50px;
 }
 
 @media(max-width: 767px) {

@@ -40,8 +40,21 @@ Pestmarket | Forum
                     </div>
                 </div>
                 <hr class="my-3">
-                <div class="col-md-1 p-3 post-actions">
-                    <form action="." method="POST">
+                <div class="col-md-1 p-3">
+                    <form action="{% url 'like-post' post.pk %}" method="POST">
+                        {% csrf_token %}
+                        {% if liked %}
+                        <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn-like">
+                            <img class="like-post" src="{% static 'images/liked.png' %}" alt="">
+                        </button>
+                        {% else %}
+                        <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn-like">
+                            <img class="like-post" src="{% static 'images/unliked.png' %}" alt="">
+                        </button>
+                        {% endif %}
+                        {{total_likes}}
+                    </form>
+                    <!-- <form class="post-actions" action="." method="POST">
                         {% csrf_token %}
                         {% if liked_post %}
                         <button id="post-dislike" class="text-decoration-none border-0" name="dislike_post">
@@ -52,9 +65,9 @@ Pestmarket | Forum
                             <img class="like-post" src="{% static 'images/unliked.png' %}" alt="">
                         </button>
                         {% endif %}
-                        <img class="comment-post" src="{% static 'images/comment.png' %}" alt="">
                         <p class="text-muted">{{ likes }}</p>
-                    </form>
+                        <img style="float: right;" class="comment-post" src="{% static 'images/comment.png' %}" alt="">
+                    </form> -->
                 </div>
             </div>
         </div>
