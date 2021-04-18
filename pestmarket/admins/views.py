@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from products.models import Product, Order, OrderItem, ShippingAddress
+from django.contrib.auth.models import User
 from .forms import AddProductForm, UpdateProductForm
 
 # Create your views here.
@@ -11,6 +12,9 @@ def dashboard(request):
     context['product_form'] = AddProductForm
     context['product_update_form'] = UpdateProductForm
     products = Product.objects.all()
+    products_count = Product.objects.count()
+    user_count = User.objects.count()
+    orders_count = ShippingAddress.objects.count()
     if request.method == 'POST':
         if 'add_product' in request.POST:
             product_form = AddProductForm(request.POST, request.FILES)
@@ -47,6 +51,9 @@ def dashboard(request):
 
     context['activatedashboard'] = 'active'
     context['products'] = products
+    context['products_count'] = products_count
+    context['user_count'] = user_count
+    context['orders_count'] = orders_count
 
     return render(request, 'admins/dashboard.html', context)
 
