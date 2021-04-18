@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, PasswordChangeForm
 from .models import Profile
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -43,6 +43,23 @@ def profile(request):
         'profile_form': profile_form
     }
     return render(request, 'users/profile.html', context)
+
+
+@login_required
+def password(request):
+    if request.method == 'POST':
+        password_form = PasswordChangeForm(request.POST)
+        if password_form.is_valid():
+            password_form.save(request.user)
+            messages.success(request, 'Your password has been updated!')
+            return redirect('/users/profile/')
+    else:
+        password_form = PasswordChangeForm()
+
+    context = {
+        'password_form': password_form
+    }
+    return render(request, 'users/password.html', context)
 
 
 @login_required

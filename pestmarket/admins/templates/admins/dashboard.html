@@ -45,8 +45,7 @@ Pestmarket | About Us
                                 <form action="." method="POST" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {{product_form|crispy}}
-                                    <input type="submit" class="btn btn-primary" name="add_product" id=""
-                                        value="Add Product">
+                                    <input type="submit" class="btn btn-primary" name="add_product" value="Add Product">
                                 </form>
                             </div>
                         </div>
@@ -90,7 +89,7 @@ Pestmarket | About Us
                                                 {% csrf_token %}
                                                 {{product_update_form|crispy}}
                                                 <input type="hidden" name="product_id" id="" value="{{product.pk}}">
-                                                <input type="submit" class="btn btn-primary" name="edit_product" id=""
+                                                <input type="submit" class="btn btn-primary" name="edit_product"
                                                     value="Edit Product">
                                             </form>
                                         </div>
