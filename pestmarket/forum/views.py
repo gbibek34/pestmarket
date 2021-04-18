@@ -1,13 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from django.urls import reverse
-from .models import Post
+from django.urls import reverse, reverse_lazy
+from .models import Post, Comment
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .forms import CreatePostForm
+from .forms import CreatePostForm, CreateCommentForm
 
 # Create your views here.
 
@@ -49,6 +49,7 @@ class PostListView(LoginRequiredMixin, ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'forum/post.html'
+    fields = ['body']
 
     def get_context_data(self, *args, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
@@ -70,6 +71,27 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class PostCommentView(LoginRequiredMixin, CreateView):
+    model = Comment
+    fields = ['body']
+    template_name = 'forum/comment.html'
+    success_url = '/forum/{}'
+
+    def form_valid(self, form):
+        form.instance.name = self.request.user
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(PostCommentView, self).get_context_data(**kwargs)
+        post = self.kwargs['pk']
+        context['post'] = post
+        return context
+
+    def get_success_url(self, **kwargs):
+        return reverse("post-view", kwargs={'pk': self.kwargs['pk']})
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):

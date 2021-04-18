@@ -22,3 +22,17 @@ class Post(models.Model):
 
     def total_likes(self):
         return self.likes.count()
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post, related_name="comments", on_delete=models.CASCADE)
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '%s - %s' % (self.post.title, self.name)
+
+    def total_comments(self):
+        return self.objects.count()

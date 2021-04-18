@@ -46,7 +46,12 @@
 .post-actions {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.btn-like {
+    border: none;
+    background: transparent;
 }
 
 .like-post {
