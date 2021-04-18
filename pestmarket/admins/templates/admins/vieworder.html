@@ -9,7 +9,33 @@ Pestmarket | About Us
 <main>
     <div class="container p-4">
         {% if user.is_staff %}
-        <h1>Orderes Here</h1>
+        <div class="orders-list">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Orders for {{orderid.customer}}</h3>
+                <a href="/admins/orders/" class="btn btn-outline-danger">All Orders</a>
+            </div>
+            <table class="table table-hover orders-table">
+                <thead style="color: #EDEDED;
+                background: #019F55;">
+                    <tr>
+                        <th scope="col">Product ID</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <th scope="row">{{order.product.id}}</th>
+                        <td><img class="product-list-image" src="{{order.product.image.url}}" alt=""></td>
+                        <td style=>{{order.product.name}}</td>
+                        <td>{{order.quantity}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
         {% else %}
         <div class="jumbotron">
             <p class="lead">Error</p>

@@ -53,6 +53,16 @@ def dashboard(request):
 
 def shipping(request):
     shipping = ShippingAddress.objects.all()
+    if request.method == 'POST':
+        if 'complete_shipping' in request.POST:
+            current_shipping = ShippingAddress.objects.filter(
+                pk=request.POST['shipping_id']).first()
+            current_shipping.completed = True
+            current_shipping.save()
+        else:
+            current_shipping = ShippingAddress.objects.filter(
+                pk=request.POST['shipping_id']).first()
+
     context = {
         'activateorders': 'active',
         'shippings': shipping
@@ -60,10 +70,13 @@ def shipping(request):
     return render(request, 'admins/orders.html', context)
 
 
-def vieworder(request, order_id):
-    order = Order.objects.get(id=order_id)
+def vieworder(request, pk):
+    orders = OrderItem.objects.filter(order=pk)
+    orderid = Order.objects.filter(pk=pk).first()
     context = {
-        'activateorders': 'active'
+        'activateorders': 'active',
+        'orders': orders,
+        'orderid': orderid
     }
     return render(request, 'admins/vieworder.html', context)
 

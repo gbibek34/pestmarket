@@ -40,9 +40,15 @@ Pestmarket | About Us
                         </td>
                         <td>
                             <a href="/admins/orders/{{shipping.order.id}}"
-                                class="btn btn-block btn-sm btn-outline-secondary" href="">View
-                                Order</a>
-                            <a class="btn btn-block btn-sm btn-outline-success" href="">Complete</a>
+                                class="btn btn-block btn-sm btn-outline-secondary mb-1">View Order</a>
+                            {% if shipping.completed == False %}
+                            <form action="." method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="shipping_id" value="{{shipping.pk}}">
+                                <input type="submit" class="btn btn-block btn-sm btn-outline-success"
+                                    name='complete_shipping' value="Complete">
+                            </form>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
