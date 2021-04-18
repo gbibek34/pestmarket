@@ -8,7 +8,8 @@ urlpatterns = [
     path('register/', views.register),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html')),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html')),
-    path('profile/', views.profile)
+    path('profile/', views.profile),
+    path('checklogin/', views.homeredirect),
 ]
 
 if settings.DEBUG:

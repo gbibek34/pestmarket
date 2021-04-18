@@ -43,3 +43,11 @@ def profile(request):
         'profile_form': profile_form
     }
     return render(request, 'users/profile.html', context)
+
+
+@login_required
+def homeredirect(request):
+    if request.user.is_staff:
+        return redirect('/admins/dashboard/')
+    else:
+        return redirect('/')

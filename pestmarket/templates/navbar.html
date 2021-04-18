@@ -11,6 +11,14 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
+                    {% if user.is_staff %}
+                    <li class="nav-item m-2 {{activatedashboard}}">
+                        <a class="nav-link navlink" href="/admins/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item m-2 {{activateorders}}">
+                        <a class="nav-link navlink" href="/admins/orders">Orders</a>
+                    </li>
+                    {% else %}
                     <li class="nav-item m-2 {{activatehome}}">
                         <a class="nav-link navlink" href="/">Home<span class="sr-only">(current)</span></a>
                     </li>
@@ -23,6 +31,7 @@
                     <li class="nav-item m-2 {{activateabout}}">
                         <a class="nav-link navlink" href="/aboutus">About Us</a>
                     </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item m-2 dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -31,7 +40,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/users/profile">My Profile</a>
+                            {% if not user.is_staff %}
                             <a class="dropdown-item" href="/products/cart">My Cart</a>
+                            {% endif %}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/users/logout">Sign out</a>
                         </div>

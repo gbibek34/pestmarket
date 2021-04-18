@@ -139,6 +139,6 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/users/checklogin/'
 
-LOGIN_URL = '/users/login'
+LOGIN_URL = '/users/login/'

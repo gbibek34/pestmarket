@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+Pestmarket | About Us
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container p-4">
+        {% if user.is_staff %}
+        <div class="orders-list">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Orders</h3>
+                <!-- <a href="" class="btn btn-outline-success btn-add-product">Add Product</a> -->
+            </div>
+            <table class="table table-hover orders-table">
+                <thead style="color: #EDEDED;
+                background: #019F55;">
+                    <tr>
+                        <th scope="col">Order ID</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col" style="text-align:center">Status</th>
+                        <th scope="col" style="text-align:center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for shipping in shippings %}
+                    <tr>
+                        <th scope="row">{{shipping.id}}</th>
+                        <td>{{shipping.customer.first_name}}</td>
+                        <td>{{shipping.contactno}}</td>
+                        <td>
+                            {% if shipping.completed == False %}
+                            <a class="btn btn-block btn-sm btn-warning disabled">Pending</a>
+                            {% elif shipping.completed == True %}
+                            <a class="btn btn-block btn-sm btn-success disabled">Completed</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="/admins/orders/{{shipping.order.id}}"
+                                class="btn btn-block btn-sm btn-outline-secondary" href="">View
+                                Order</a>
+                            <a class="btn btn-block btn-sm btn-outline-success" href="">Complete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="jumbotron">
+            <p class="lead">Error</p>
+            <hr class="my-4">
+            <p>The page is unavailable</p>
+        </div>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

@@ -36,7 +36,9 @@ def cart(request):
     if request.method == 'POST':
         checkoutform = CheckoutForm(request.POST)
         if checkoutform.is_valid():
-            checkoutform.save()
+            order.complete = True
+            order.save()
+            checkoutform.save(customer, order)
             messages.success(request, f'Order Placed Successfully')
             return redirect('/products/')
     else:

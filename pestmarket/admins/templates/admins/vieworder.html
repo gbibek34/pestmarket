@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+Pestmarket | About Us
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container p-4">
+        {% if user.is_staff %}
+        <h1>Orderes Here</h1>
+        {% else %}
+        <div class="jumbotron">
+            <p class="lead">Error</p>
+            <hr class="my-4">
+            <p>The page is unavailable</p>
+        </div>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

@@ -39,11 +39,11 @@ Pestmarket | Market
             </div>
             {% endfor %}
         </div>
-        <!-- {# if order.get_cart_items==0 #} -->
-        <!-- <div class="empty-cart">
+        {% if order.get_cart_items == 0 %}
+        <div class="order-summary">
             <a href="/products/" class="btn btn-block btn-outline-secondary">Your cart is empty, continue shopping</a>
-        </div> -->
-        <!-- {# else #} -->
+        </div>
+        {% else %}
         <div class="order-summary">
             <div class="order-details p-4 shadow">
                 <h2>Order Summary</h2>
@@ -62,7 +62,7 @@ Pestmarket | Market
                 </form>
             </div>
         </div>
-        <!-- {# endif #} -->
+        {% endif %}
     </div>
 </main>
 {% endblock %}

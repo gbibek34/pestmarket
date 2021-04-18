@@ -1,0 +1,121 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+Pestmarket | About Us
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container dashboard-container p-4">
+        {% if user.is_staff %}
+        <div class="database-info">
+            <div class="p-2 count-box">
+                <p>User Count</p>
+                <h1>20</h1>
+            </div>
+            <div class="p-2 count-box">
+                <p>Products Count</p>
+                <h1>10</h2>
+            </div>
+            <div class="p-2 count-box">
+                <p>Order Count</p>
+                <h1>5</h1>
+            </div>
+        </div>
+        <div class="products-list mt-5">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Listed Products</h3>
+                <!-- Button trigger modal -->
+                <a class="btn btn-outline-success btn-add-product" data-toggle="modal" data-target="#addModal">Add
+                    Product</a>
+                <!-- Modal -->
+                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addModal">Add Product</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="." method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{product_form|crispy}}
+                                    <input type="submit" class="btn btn-primary" name="add_product" id=""
+                                        value="Add Product">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover mt-3 products-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product ID</th>
+                        <th scope="col">Display Image</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col" style="text-align:center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <th scope="row">{{product.id}}</th>
+                        <td><img class="product-list-image" src="{{product.image.url}}" alt="Product Image"></td>
+                        <td>{{product.name}}</td>
+                        <td>Rs {{product.price}}</td>
+                        <td>
+                            <!-- Button trigger modal -->
+                            <a class="btn btn-block btn-sm btn-outline-warning mb-1" href="" data-toggle="modal"
+                                data-target="#editModal">Edit</a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                                aria-labelledby="editModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editModal">Edit Product</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="." method="POST" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                {{product_update_form|crispy}}
+                                                <input type="hidden" name="product_id" id="" value="{{product.pk}}">
+                                                <input type="submit" class="btn btn-primary" name="edit_product" id=""
+                                                    value="Edit Product">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="." method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="product_id" id="" value="{{product.pk}}">
+                                <input type="submit" class="btn btn-block btn-sm btn-outline-danger mt-1"
+                                    name="remove_product" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="jumbotron">
+            <p class="lead">Error</p>
+            <hr class="my-4">
+            <p>The page is unavailable</p>
+        </div>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
