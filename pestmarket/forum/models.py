@@ -23,6 +23,9 @@ class Post(models.Model):
     def total_likes(self):
         return self.likes.count()
 
+    def total_comments(self):
+        return self.comments.count()
+
 
 class Comment(models.Model):
     post = models.ForeignKey(
@@ -33,6 +36,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return '%s - %s' % (self.post.title, self.name)
-
-    def total_comments(self):
-        return self.objects.count()

@@ -135,7 +135,12 @@
 }
 
 .product-img img {
+    width: 200px;
+    height: 200px;
+
     transition: transform 0.6s ease;
+
+    border-radius: 50%;
 }
 
 .product:hover .product-img img {
@@ -145,5 +150,3 @@
 .product:hover .product-btns {
     opacity: 1;
 }
-
-/* Media Queries */

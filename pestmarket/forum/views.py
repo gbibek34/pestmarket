@@ -55,11 +55,13 @@ class PostDetailView(DetailView):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         get_post = get_object_or_404(Post, id=self.kwargs['pk'])
         total_likes = get_post.total_likes()
+        total_comments = get_post.total_comments()
         liked = False
         if get_post.likes.filter(id=self.request.user.id).exists():
             liked = True
         context['activateforum'] = 'active'
         context['total_likes'] = total_likes
+        context['total_comments'] = total_comments
         context['liked'] = liked
         return context
 

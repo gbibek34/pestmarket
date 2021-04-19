@@ -10,7 +10,7 @@ Pestmarket | User Profile
 <main>
     <div class="container profile-container p-5 my-4">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <div class="user-info shadow p-4 ml-r">
                     <div>
                         <img class="user-profile-image m-auto" src="{{ user.profile.image.url }}" alt="">
@@ -21,7 +21,7 @@ Pestmarket | User Profile
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <div class="user-info-update shadow p-5">
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
@@ -32,7 +32,7 @@ Pestmarket | User Profile
                         </fieldset>
                         <div class="form-group">
                             <button class="btn btn-update" type="submit">Update</button>
-                            <a href="/users/password/" class="btn btn-update">Update</a>
+                            <a href="/users/password/" class="btn btn-update">Change Password</a>
                         </div>
                     </form>
                 </div>

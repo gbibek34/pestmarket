@@ -42,7 +42,8 @@ Pestmarket | Forum
                 </div>
                 <hr class="my-3">
                 <div>
-                    <h6 class="text-muted">{{total_likes}} Likes <span style="float: right;">0 Comments</span></h6>
+                    <h6 class="text-muted">{{total_likes}} Likes <span style="float: right;">{{total_comments}}
+                            Comments</span></h6>
                 </div>
                 <hr class="my-3">
                 <div class="post-actions">
@@ -51,7 +52,7 @@ Pestmarket | Forum
                         {% if liked %}
                         <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn-like">
                             <img class="like-post" src="{% static 'images/liked.png' %}" alt="">
-                            <h6>Like</h6>
+                            <h6>Dislike</h6>
                         </button>
                         {% else %}
                         <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn-like">
@@ -62,6 +63,12 @@ Pestmarket | Forum
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="comments mt-3 py-2 px-3">
+            <h6>
+                <span><img class="comment-post" src="{% static 'images/comment.png' %}" alt=""></span>
+                Comments
+            </h6>
         </div>
         {% if not post.comments.all %}
         <div class="card shadow mt-3 py-2 px-3 comment">
